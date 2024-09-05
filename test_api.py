@@ -2,6 +2,7 @@ import unittest
 import json
 from flask_app import app
 
+
 class FlaskAPITestCase(unittest.TestCase):
 
     def setUp(self):
@@ -46,5 +47,7 @@ class FlaskAPITestCase(unittest.TestCase):
         data = json.loads(response.data)
         self.assertIn("error", data)
 
+
 if __name__ == '__main__':
+
     unittest.main()

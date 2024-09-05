@@ -40,6 +40,7 @@ def predict():
         "score": result["score"]
     })
 
+
 if __name__ == '__main__':
 
     # run_with_ngrok(app)
