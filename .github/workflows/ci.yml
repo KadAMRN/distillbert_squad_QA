@@ -34,7 +34,7 @@ jobs:
       # Step 4: Run flake8 linter for code quality checks
       - name: Run flake8
         run: |
-          flake8 flak_app.py test_api.py
+          flake8 flask_app.py test_api.py
 
   docker_build:
     name: Docker Build and API Testing
