@@ -59,9 +59,7 @@ jobs:
       # Step 4: Test the API functionality (basic API test with curl)
       - name: Test API with curl
         run: |
-          curl -X POST "http://localhost:5000/predict" -H "Content-Type: application/json" \
-          -d '{"question": "What is quantization?", "context": "Quantization is a technique to reduce model size and speed up inference."}' \
-          | grep -q "quantization is a technique"  # Basic check for correct response
+          curl -X POST "http://localhost:5000/predict" -H "Content-Type: application/json" -d '{"question": "How is life?", "context": "Life is beautiful."}' | grep -q "beautiful"  # Basic check for correct response
 
       # Step 5: Run API Unit Tests
       - name: Run Unit Tests
