@@ -2,3 +2,4 @@ flask
 transformers
 optimum
 flask-testing
+flake8
