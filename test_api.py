@@ -16,7 +16,7 @@ class FlaskAPITestCase(unittest.TestCase):
         )
 
     def test_predict_success(self):
-        # Test case to check the API response when both question and 
+        # Test case to check the API response when both question and
         # context are provided
 
         # Sample payload with a valid question and context
@@ -44,12 +44,12 @@ class FlaskAPITestCase(unittest.TestCase):
         # Verify that the 'answer' key exists in the response
         self.assertIn("answer", data)
 
-        # Ensure the confidence score ('score') is greater than a reasonable 
+        # Ensure the confidence score ('score') is greater than a reasonable
         # threshold (0.2 in this case)
         self.assertGreater(data["score"], 0.1)
 
     def test_predict_missing_data(self):
-        # Test case to handle scenarios where either the question or 
+        # Test case to handle scenarios where either the question or
         # context is missing
 
         # Payload with a missing context field
@@ -62,7 +62,7 @@ class FlaskAPITestCase(unittest.TestCase):
             content_type="application/json",
         )
 
-        # Check that the response status is 400 (Bad Request) due 
+        # Check that the response status is 400 (Bad Request) due
         # to missing data
         self.assertEqual(response.status_code, 400)
 

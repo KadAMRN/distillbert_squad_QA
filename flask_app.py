@@ -5,16 +5,16 @@ from transformers import (
     AutoModelForQuestionAnswering,
 )
 
-# from flask_ngrok import run_with_ngrok  # Uncomment if using ngrok 
+# from flask_ngrok import run_with_ngrok  # Uncomment if using ngrok
 # for local deployment
 
-# from optimum.onnxruntime import ORTModelForQuestionAnswering  
+# from optimum.onnxruntime import ORTModelForQuestionAnswering
 # Optional: For ONNX runtime
 
 # Initialize Flask app
 app = Flask(__name__)
 
-# Load the fine-tuned DistilBERT model and tokenizer from 
+# Load the fine-tuned DistilBERT model and tokenizer from
 # the specified directory
 model_dir = "distillbert_squad"
 model = AutoModelForQuestionAnswering.from_pretrained(
@@ -24,7 +24,7 @@ tokenizer = DistilBertTokenizerFast.from_pretrained(
     model_dir
 )  # Load the corresponding tokenizer
 
-# Set up a HuggingFace pipeline for Question Answering using the loaded 
+# Set up a HuggingFace pipeline for Question Answering using the loaded
 # model and tokenizer
 qa_pipeline = pipeline("question-answering", model=model, tokenizer=tokenizer)
 
@@ -72,6 +72,6 @@ if __name__ == "__main__":
     # Optional: For running the app with ngrok if testing locally
     # run_with_ngrok(app)
 
-    # Start the Flask app on host 0.0.0.0 (all network interfaces) 
+    # Start the Flask app on host 0.0.0.0 (all network interfaces)
     # and port 5000
     app.run(host="0.0.0.0", port=5000)
