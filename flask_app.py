@@ -50,7 +50,7 @@ def predict():
             400,
         )  # Return error if missing
 
-    # Use the QA pipeline to generate the answer based on the input 
+    # Use the QA pipeline to generate the answer based on the input
     # question and context
     result = qa_pipeline({"question": question, "context": context})
 
