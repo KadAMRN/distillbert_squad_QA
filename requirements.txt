@@ -1,0 +1,4 @@
+flask
+transformers
+optimum
+flask-testing
