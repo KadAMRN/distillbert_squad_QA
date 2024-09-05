@@ -55,7 +55,7 @@ RUN pip install gdown
 RUN apt-get update && apt-get install -y unzip
 
 # Download the model folder as a zip file from Google Drive
-RUN gdown --id 1btXNz1qEdSaRBirMsomtSScyy3Gn5zV -O /flask_app/distillbert_squad.zip
+RUN gdown https://drive.google.com/drive/folders/1btXNz1qEdSaRBirMsomtSScyy3Gn5zV- -O /flask_app/distillbert_squad.zip
 
 # Unzip the model folder
 RUN unzip /flask_app/distillbert_squad.zip -d /flask_app
