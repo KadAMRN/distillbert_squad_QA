@@ -129,8 +129,8 @@ After fine-tuning the model on the SQuAD dataset, the performance metrics are as
 - **F1 Score:** 64.99%
 
 ### Comparison of Original vs Fine-Tuned Model:
-- **Original Model**: The pre-trained **DistilBERT** model, without fine-tuning, is designed for general language understanding but lacks the specialized knowledge to handle the intricacies of QA tasks.
-- **Fine-Tuned Model**: After fine-tuning on the SQuAD dataset, the model shows a significant improvement in its ability to handle question answering, as seen in the **Exact Match** and **F1 scores**.
+- **Original Model**: The pre-trained **DistilBERT** model, without fine-tuning, is designed for general language understanding, theorically, it would lack the specialized knowledge to handle the intricacies of QA tasks.
+- **Fine-Tuned Model**: After fine-tuning on the SQuAD dataset, the model shows its ability to handle question answering, as seen in the **Exact Match** and **F1 scores**.
 
 While the fine-tuned model demonstrates solid performance in QA tasks, there’s still room for improvement, especially in achieving higher exact match accuracy. However, the **F1 score** suggests that the model captures relevant information even if it doesn’t always provide the exact answer.
 
