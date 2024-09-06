@@ -45,12 +45,13 @@ I chose **DistilBERT**, a distilled version of BERT, due to several key factors,
 
 ### Comparison with Similar Models:
 
-| Model        | Parameters | Layers | Speed vs BERT-base | Task Suitability | Notes |
-|--------------|------------|--------|--------------------|------------------|-------|
-| **DistilBERT**   | 66M        | 6      | 60% faster         | General-purpose NLP, QA  | Distilled version of BERT, balanced for efficiency and performance |
-| **BERT-base**    | 110M       | 12     | Baseline           | General-purpose NLP, QA  | Larger and more computationally expensive than DistilBERT |
+| Model        | Parameters | Layers | Speed vs BERT-base | Task Suitability           | Notes |
+|--------------|------------|--------|--------------------|----------------------------|-------|
+| **DistilBERT**   | 66M        | 6      | 60% faster         | General-purpose NLP, QA     | Distilled version of BERT, balanced for efficiency and performance |
+| **BERT-base**    | 110M       | 12     | Baseline           | General-purpose NLP, QA     | Larger and more computationally expensive than DistilBERT |
 | **T5-small**     | 60M        | 6      | Fast               | Text-to-text tasks, Summarization | Issues with quantization, not ideal for QA due to task specialization |
-| **MobileBERT**   | 25M        | 24     | Faster than BERT-base, slower than DistilBERT | Mobile device-focused NLP | Optimized for mobile, but may compromise performance for larger tasks like QA |
+| **MobileBERT**   | 25M        | 24     | Faster than BERT-base, slower than DistilBERT | Mobile device-focused NLP      | Optimized for mobile, but may compromise performance for larger tasks like QA |
+| **GPT-2 (small)**| 117M       | 12     | Slower than BERT-base | Text generation, less QA-focused | Pre-trained for text generation; not primarily suited for comprehension tasks like QA |
 
 - **DistilBERT vs BERT-base**:  
    While BERT-base offers more layers and parameters (110M vs 66M), DistilBERT is 60% faster and uses fewer resources. For my QA task, DistilBERT maintains strong language comprehension while being much more efficient on limited hardware.
@@ -61,8 +62,21 @@ I chose **DistilBERT**, a distilled version of BERT, due to several key factors,
 - **DistilBERT vs MobileBERT**:  
    MobileBERT is optimized for mobile devices with only 25M parameters. However, this optimization leads to performance compromises for more intensive tasks like QA. DistilBERT provides better overall performance while still being efficient enough for limited hardware environments.
 
+- **DistilBERT vs GPT-2 (small)**:  
+   GPT-2 (small) has 117M parameters and is slightly larger than BERT-base. Although GPT-2 excels at text generation, it is not primarily trained for comprehension tasks like QA. It is slower than BERT-base and less suitable for QA tasks, as its architecture is more focused on generating fluent, coherent text.
+
 ### Summary:
-Given my limited hardware resources and the goal of performing a **Question-Answering task**, DistilBERT offers the best balance between model size, computational efficiency, and performance. Compared to BERT-base, T5-small, and MobileBERT, DistilBERT maintains a high level of language understanding while being optimized for resource-constrained environments, making it the most suitable model for this task.
+Given my limited hardware resources and the goal of performing a **Question-Answering task**, DistilBERT offers the best balance between model size, computational efficiency, and performance. Compared to BERT-base, T5-small, MobileBERT, and GPT-2 (small), DistilBERT maintains a high level of language understanding while being optimized for resource-constrained environments, making it the most suitable model for this task.
+
+
+
+
+## 2. Quantization (Bonus, Based on Need)
+
+### Approach Considered:
+Although I ultimately did not implement model quantization in this project, I considered applying **Post-Training Quantization**. This technique reduces the model size and improves performance by converting the weights and activations from 32-bit floating point to lower precision (such as 8-bit integers) without needing to retrain the model considering my hardware restriction.
+
+This approach would have been particularly useful for deploying the model on resource-constrained devices, where inference speed and memory usage are critical factors. However, due to the specific requirements and available time, I focused on optimizing the model for inference without quantization for this task.
 
 
 
@@ -301,7 +315,7 @@ This Dockerfile encapsulates the Flask-based Question Answering API, along with 
 By containerizing the Flask application with this Dockerfile, the API and its environment can be consistently deployed across different machines or cloud platforms. This allows for ease of deployment and scaling.
 
 
-## CI/CD Pipeline Flow for Flask API with Github Actions
+## 7. CI/CD Pipeline Flow for Flask API with Github Actions
 
 This CI pipeline, defined in the `.github/workflows/ci.yml` file, automates the process of code quality checks, Docker image builds, and API testing. It is triggered on code changes in the `main` branch via a push or pull request.
 
