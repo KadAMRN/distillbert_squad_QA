@@ -105,7 +105,7 @@ The **SQuAD (Stanford Question Answering Dataset)** is a widely-used dataset for
 - **Proven Benchmark**: SQuAD is a standard benchmark for QA models, meaning that fine-tuning on it allows me to easily compare my model’s performance to other state-of-the-art models.
 
 ### Preprocessing and Fine-tuning Implementation:
-All details about the preprocessing steps and the fine-tuning implementation can be found in the **QA_pipeline.ipynb** file. This notebook covers the tokenization, dataset preparation, and training process used to fine-tune DistilBERT on the SQuAD dataset.
+All details about the preprocessing steps and the fine-tuning implementation can be found in the **QA_pipeline.ipynb** file which should run smoothly. This notebook covers the tokenization, dataset preparation, and training process used to fine-tune DistilBERT on the SQuAD dataset.
 
 
 ## 4. Model Evaluation (Bonus)
@@ -417,5 +417,12 @@ The `docker_build` job starts only after the successful completion of the `lint`
 This pipeline ensures that every change to the codebase is thoroughly linted, built, and tested automatically, improving the reliability and quality of the application over time.
 
 
+## Bonus: Command Window Application
+
+As an added bonus, I developed a simple **command-line interface (CLI)** application called `demo_QA.py`, which allows you to test the model interactively. To use the interface, simply run the file:
+
+```bash
+python demo_QA.py
+```
 
 ## Thank You!
